@@ -32,7 +32,7 @@ function previewImage() {
   
   function sendToBackend(imageData, typeAlgorithm) {
     // Gửi dữ liệu hình ảnh imageData tới backend sử dụng fetch API
-    fetch('https://hoangnhan1708.github.io/server-edge-detection/process_image', {
+    fetch('http://127.0.0.1:5000/process_image', {
       method: 'POST',
       body: JSON.stringify({ image_data: imageData , type_algorithm :  typeAlgorithm}),
       headers: {
