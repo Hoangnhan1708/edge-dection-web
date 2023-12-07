@@ -1,0 +1,148 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.app{
+    position: relative;
+}
+
+.decoration{
+    position: absolute;
+    color: #ffc83e;
+}
+
+.right{
+    right: 0;
+}
+
+.bottom-left{
+    bottom: 0;
+    
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    border-bottom: 1px solid #54616c;
+}
+
+.header__logo{
+    width: 80px;
+    height: 70px;
+}
+
+.header__heading{
+    color: #54616c;
+    font-size: 70px;
+}
+
+.main{
+    margin-top: 40px;
+}
+
+.input-container{
+    margin-top: 20px;
+    padding: 144px 40px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+}
+.input__category-heading{
+    margin-bottom: 20px;
+    color: #54616c;
+}
+
+.input__category-container{
+    margin-bottom: 40px;
+}
+#input__category-select{
+
+}
+
+.output-container{
+    display: none;
+    margin-top: 20px;
+    padding: 144px 40px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.output-container.show {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.output__img{
+    
+    width: 700px;
+    height: 700px;
+}
+.output__heading{
+    margin-top: 30px;
+    font-size: 30px;
+    color: #54616c;
+}
+
+.input__btn{
+    cursor: pointer;
+    padding: 20px 40px;
+    border: none;
+    background-color:#0f70e6 ;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 16px;
+}
+
+
+.pr-container{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.pr__img{
+    width: 420px;
+    height: 280px;
+}
+
+.pr__heading{
+    font-size: 60px;
+    font-weight: 600;
+    color: #454545;
+}
+
+.pr__des{
+    font-size: 20px;
+    color: #454545;
+
+}
+
+.term-container{
+    margin-top: 20px;
+}
+
+.term-container p{
+    font-size: 12px;
+}
+
+
+
+
+
