@@ -73,6 +73,35 @@ html {
 #input__category-select{
 
 }
+
+.img-input-container{
+    display: none;
+    margin-top: 20px;
+    padding: 144px 40px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.img-input-container.show {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-input__img{
+    width: 700px;
+    height: 700px;
+}
+
+.img-input__heading{
+    margin-top: 30px;
+    font-size: 30px;
+    color: #54616c;
+}
+
+
 .notify-container{
     text-align: center;
 }

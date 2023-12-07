@@ -1,6 +1,9 @@
 var inputCate = document.getElementById("input__category-select")
 var notify = document.querySelector("#notify")
 var outputContainer = document.querySelector('.output-container');
+var imgInputContainer = document.querySelector(".img-input-container")
+var imgInput = document.querySelector('.img-input__img')
+var headingImgInput = document.querySelector('.img-input__heading')
 categorySelected = "gradient_custom"
 inputCate.onchange = function(event){
     categorySelected = event.target.value
@@ -13,9 +16,10 @@ function previewImage() {
     var file = document.getElementById('files').files[0];
     var reader = new FileReader();
 
-
-    
     reader.onloadend = function () {
+        imgInputContainer.classList.add("show")
+        imgInput.src = reader.result
+        headingImgInput.innerText = "This is your old image"
       sendToBackend(reader.result,categorySelected);
     };
   
