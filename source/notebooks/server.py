@@ -44,7 +44,6 @@ def handle_image():
             processed_image = canny_custom(image_data)
         
         
-        
         if processed_image is None:
             return jsonify({'error': 'Không thể xử lý ảnh'}), 500
         
