@@ -73,6 +73,15 @@ html {
 #input__category-select{
 
 }
+.notify-container{
+    text-align: center;
+}
+
+#notify{
+    font-size: 40px;
+    z-index: 100;
+    color: #ffc83e;
+}
 
 .output-container{
     display: none;

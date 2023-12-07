@@ -1,10 +1,14 @@
 var inputCate = document.getElementById("input__category-select")
+var notify = document.querySelector("#notify")
+var outputContainer = document.querySelector('.output-container');
 categorySelected = "gradient_custom"
 inputCate.onchange = function(event){
     categorySelected = event.target.value
 }
 
 function previewImage() {
+    
+    notify.innerText = "Please wait..."
    
     var file = document.getElementById('files').files[0];
     var reader = new FileReader();
@@ -26,7 +30,7 @@ function previewImage() {
     // Gửi dữ liệu hình ảnh imageData tới backend sử dụng fetch API
     fetch('http://127.0.0.1:5000/process_image', {
       method: 'POST',
-      body: JSON.stringify({ image_data: imageData}),
+      body: JSON.stringify({ image_data: imageData , type_algorithm :  typeAlgorithm}),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -40,9 +44,10 @@ function previewImage() {
       var h3 = document.querySelector('.output__heading');
       h3.innerText = "This is your image after edge detection"
       // Tìm phần tử có class là 'output-container' và thêm thẻ <img> vào đó
-      var outputContainer = document.querySelector('.output-container');
+      
       outputContainer.classList.add("show")
       outputContainer.appendChild(h3);
+      notify.innerText = ""
     })
     .catch(error => console.error('Lỗi:', error));
   }

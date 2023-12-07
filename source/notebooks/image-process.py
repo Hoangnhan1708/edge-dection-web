@@ -4,33 +4,46 @@ import matplotlib.pyplot as plt
 from flask import Flask, request, jsonify
 from flask_cors import CORS  # Import thư viện CORS
 import base64
+from algorithm import *
 
 app = Flask(__name__)
 CORS(app, resources={r"/process_image": {"origins": "http://127.0.0.1:5500"}})
 
-def process_image(image_data):
-    try:
-        _, image_data = image_data.split(';base64,')
-        image_data = base64.b64decode(image_data)
-        nparr = np.frombuffer(image_data, np.uint8)
-        img_np = cv2.imdecode(nparr, cv2.IMREAD_GRAYSCALE)
-        
-        if img_np is None:
-            return None
-        
-        laplacian_img = cv2.Laplacian(img_np, cv2.CV_8U, ksize=3)
-        
-        # Trả về ảnh đã xử lý dưới dạng mảng NumPy
-        return laplacian_img
-        
-    except Exception as e:
-        return str(e)
+
+
 
 @app.route('/process_image', methods=['POST'])
 def handle_image():
     try:
         image_data = request.json['image_data']
-        processed_image = process_image(image_data)
+        type_algorithm = request.json['type_algorithm']
+        print(type_algorithm)
+        processed_image = None
+        if type_algorithm == "gradient_custom":
+            processed_image = gradient_custom(image_data)
+        
+        if type_algorithm == "gradient_library":
+            processed_image = gradient_library(image_data)
+            
+        if type_algorithm == "laplace_custom":
+            processed_image = laplace_custom(image_data)
+        
+        if type_algorithm == "laplace_library":
+            processed_image = laplace_library(image_data)
+
+        if type_algorithm == "laplacian_library":
+            processed_image = laplacian_library(image_data)
+            
+        if type_algorithm == "laplacian_custom":
+            processed_image = laplacian_custom(image_data)
+
+        if type_algorithm == "canny_library":
+            processed_image = canny_library(image_data)
+        
+        if type_algorithm == "canny_custom":
+            processed_image = canny_custom(image_data)
+        
+        
         
         if processed_image is None:
             return jsonify({'error': 'Không thể xử lý ảnh'}), 500
