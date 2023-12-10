@@ -10,18 +10,18 @@ def gradient_library(image_data):
         img_np = cv2.imdecode(nparr, cv2.IMREAD_GRAYSCALE)
         if img_np is None:
             return None
-        
+
         # Áp dụng toán tử sobel với kích thước là 3
         gradient_x = cv2.Sobel(img_np, cv2.CV_64F, 1, 0, ksize=3)
         gradient_y = cv2.Sobel(img_np, cv2.CV_64F, 0, 1, ksize=3)
-        
+
         # Tính toán vecto cường độ gradient
         magnitude = np.sqrt(gradient_x**2 + gradient_y**2).astype(int)
         magnitude = np.uint8(magnitude)
-        
+
         # Tính toán BEI
         BEI = cv2.threshold(magnitude, 50, 255, cv2.THRESH_BINARY)[1]
-        
+
         # Trả về ảnh đã xử lý dưới dạng mảng NumPy
         return BEI
     except Exception as e:

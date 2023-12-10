@@ -1,6 +1,5 @@
-import numpy as np
+
 import cv2 
-import matplotlib.pyplot as plt
 from flask import Flask, request, jsonify
 from flask_cors import CORS  # Import thư viện CORS
 import base64
@@ -8,9 +7,6 @@ from algorithm import *
 
 app = Flask(__name__)
 CORS(app, resources={r"/process_image": {"origins": "http://127.0.0.1:5500"}})
-
-
-
 
 @app.route('/process_image', methods=['POST'])
 def handle_image():
